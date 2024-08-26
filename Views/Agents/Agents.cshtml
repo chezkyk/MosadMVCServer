@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MosadMVCServer.Models.Agent>
+﻿@model IEnumerable<MosadMVCServer.Models.AgentViews>
 
 @{
 	ViewData["Title"] = "Agents";
@@ -13,22 +13,28 @@
 	<thead>
 		<tr>
 			<th>
-				@Html.DisplayNameFor(model => model.Id)
+				@Html.DisplayNameFor(model => model.Agent.Id)
 			</th>
 			<th>
-				@Html.DisplayNameFor(model => model.Nickname)
+				@Html.DisplayNameFor(model => model.Agent.PhotoUrl)
 			</th>
 			<th>
-				@Html.DisplayNameFor(model => model.PhotoUrl)
+				@Html.DisplayNameFor(model => model.Agent.Nickname)
 			</th>
 			<th>
-				@Html.DisplayNameFor(model => model.Location.X)
+				@Html.DisplayNameFor(model => model.Agent.Location.X)
 			</th>
 			<th>
-				@Html.DisplayNameFor(model => model.Location.Y)
+				@Html.DisplayNameFor(model => model.Agent.Location.Y)
 			</th>
 			<th>
-				@Html.DisplayNameFor(model => model.Status)
+				@Html.DisplayNameFor(model => model.Agent.Status)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.KillAmount)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.TimeLeft)
 			</th>
 			<th></th>
 		</tr>
@@ -38,26 +44,32 @@
 		{
 			<tr>
 				<td>
-					@Html.DisplayFor(modelItem => item.Id)
+					@Html.DisplayFor(modelItem => item.Agent.Id)
 				</td>
 				<td>
-					@Html.DisplayFor(modelItem => item.Nickname)
+					@Html.DisplayFor(modelItem => item.Agent.PhotoUrl)
 				</td>
 				<td>
-					@Html.DisplayFor(modelItem => item.PhotoUrl)
+					@Html.DisplayFor(modelItem => item.Agent.Nickname)
 				</td>
 				<td>
-					@Html.DisplayFor(modelItem => item.Location.X)
+					@Html.DisplayFor(modelItem => item.Agent.Location.X)
 				</td>
 				<td>
-					@Html.DisplayFor(modelItem => item.Location.Y)
+					@Html.DisplayFor(modelItem => item.Agent.Location.Y)
 				</td>
 				<td>
-					@Html.DisplayFor(modelItem => item.Status)
+					@Html.DisplayFor(modelItem => item.Agent.Status)
 				</td>
 				<td>
-					
-					@Html.ActionLink("Details", "Details", new { id=item.Id }) 
+					@Html.DisplayFor(modelItem => item.KillAmount)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.TimeLeft)
+				</td>
+				<td>
+
+					@Html.ActionLink("Details", "Details", new { id = item.Agent.Id })
 
 				</td>
 			</tr>
