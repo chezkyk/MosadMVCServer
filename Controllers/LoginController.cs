@@ -18,9 +18,9 @@ namespace MosadMVCServer.Controllers
         }
         public IActionResult Login()
         {
-
             ViewBag.LoginStatus = TempData["LoginStatus"];
             return View();
+            
         }
         [HttpPost]
         public async Task<IActionResult> Login(UserDetails userDetails)
@@ -28,7 +28,7 @@ namespace MosadMVCServer.Controllers
 
             _httpClient.BaseAddress = new Uri("http://localhost:5125");
 
-            HttpResponseMessage response = await _httpClient.PostAsJsonAsync("/api/auth/login", userDetails);
+            HttpResponseMessage response = await _httpClient.PostAsJsonAsync("/auth/login", userDetails);
 
             if (response.IsSuccessStatusCode)
             {
@@ -38,7 +38,7 @@ namespace MosadMVCServer.Controllers
                 var jsonResult = JsonSerializer.Deserialize<Dictionary<string, string>>(result);
                 string token = jsonResult["token"];
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                return RedirectToAction("Index");
+                
 
             }
             else
@@ -46,8 +46,8 @@ namespace MosadMVCServer.Controllers
 
                 TempData["LoginStatus"] = "Invalid login attempt. Please check your credentials.";
             }
-
-            return RedirectToAction("Index");
+            return RedirectToAction("Login");
+           
         }
     }
 }
