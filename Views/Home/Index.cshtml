@@ -1,8 +1,115 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model MosadMVCServer.Models.HomeView
+@{
+    ViewData["Title"] = "Index";
 }
+<h1>Index</h1>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h2>Agents</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ActiveAgents)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NotActiveAgents)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.ActiveAgents)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.NotActiveAgents)
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Targets</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AliveTarget)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeadTarget)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.AliveTarget)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.DeadTarget)
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Missions</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OfferMission)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InMissionMission)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FinishMission)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.OfferMission)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.InMissionMission)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.FinishMission)
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Relation of Agents to Targets</h2>
+<table class="table">
+    <thead>
+        <tr>
+            @Html.DisplayNameFor(model => model.RelationOfAgentsToTargets)
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.RelationOfAgentsToTargets)
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2>Relation of GoodAgents to Targets</h2>
+<table class="table">
+    <thead>
+        <tr>
+            @Html.DisplayNameFor(model => model.GoodActiveAgents)
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.GoodActiveAgents)
+            </td>
+        </tr>
+    </tbody>
+</table>

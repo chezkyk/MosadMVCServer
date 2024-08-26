@@ -10,11 +10,11 @@ namespace MosadMVCServer.Models
 
         public Target TargetId { get; set; }
 
-        public double? TimeLeft { get; set; }
+        public double TimeLeft { get; set; }
 
-        public double? ExecutionTime { get; set; }
+        public double ExecutionTime { get; set; }
 
-        public string? Status { get; set; }
+        public string Status { get; set; }
 
     }
 }
