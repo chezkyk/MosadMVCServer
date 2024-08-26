@@ -9,6 +9,8 @@ builder.Services.AddHttpClient<HomeController>();
 builder.Services.AddHttpClient<AgentsController>();
 builder.Services.AddHttpClient<TargetsController>();
 builder.Services.AddHttpClient<MissionsController>();
+builder.Services.AddHttpClient<LoginController>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
