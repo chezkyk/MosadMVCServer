@@ -10,7 +10,7 @@ namespace MosadMVCServer.Controllers
         //_httpClient.DefaultRequestHeaders.Add("login",$"Bearer  {Token}");
         private readonly ILogger<LoginController> _logger;
         private readonly HttpClient _httpClient;
-        //public static string token;
+        public static string token;
         public LoginController(ILogger<LoginController> logger, HttpClient httpClient)
         {
             _logger = logger;
@@ -36,7 +36,7 @@ namespace MosadMVCServer.Controllers
 
                 var result = await response.Content.ReadAsStringAsync();
                 var jsonResult = JsonSerializer.Deserialize<Dictionary<string, string>>(result);
-                string token = jsonResult["token"];
+                token = jsonResult["token"];
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                 
 
